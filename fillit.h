@@ -6,7 +6,7 @@
 /*   By: cnovo-ri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:40:14 by cnovo-ri          #+#    #+#             */
-/*   Updated: 2017/02/18 17:37:07 by cnovo-ri         ###   ########.fr       */
+/*   Updated: 2017/02/27 12:06:38 by cnovo-ri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct	s_struct
 	int	y;
 }				t_struct;
 
+char			*global_read(char *argv);
 char			**solver(char ***cub, int nb_tetri);
 int				place_tetri(char **tetri, char **map, t_struct pos,
 					int tetri_num);
