@@ -6,7 +6,7 @@
 /*   By: cnovo-ri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 18:52:05 by cnovo-ri          #+#    #+#             */
-/*   Updated: 2017/02/28 14:58:26 by cnovo-ri         ###   ########.fr       */
+/*   Updated: 2017/03/02 12:04:01 by cnovo-ri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,18 @@ char			*global_read(char *argv)
 {
 	int		fd;
 	int		ret;
+	int		ret_open;
 	char	*tmp;
 
 	if (!(tmp = (char *)malloc(sizeof(char) * 546)))
 		return (NULL);
 	fd = open(argv, O_RDONLY);
 	ret = read(fd, tmp, 546);
+	ret_open = fd;
 	close(fd);
-	if ((ret + 1) % 21 != 0)
+	if ((ret_open > -1 && ret == -1) || (ret + 1) % 21 != 0)
 	{
+		free(tmp);
 		ft_putstr("error\n");
 		return (0);
 	}
