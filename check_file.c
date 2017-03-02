@@ -6,7 +6,7 @@
 /*   By: cnovo-ri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 18:52:05 by cnovo-ri          #+#    #+#             */
-/*   Updated: 2017/03/02 12:04:01 by cnovo-ri         ###   ########.fr       */
+/*   Updated: 2017/03/02 20:32:16 by cnovo-ri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static char		*check_return(char *buf, char *tab, int fd)
 		else
 		{
 			ft_putstr("error\n");
-			return (0);
+			return (NULL);
 		}
 	}
 	return (tab);
@@ -87,7 +87,8 @@ char			*check_read(char *argv)
 	if (!(buf = (char *)malloc(sizeof(char) * 546)))
 		return (NULL);
 	fd = open(argv, O_RDONLY);
-	tab = check_return(buf, tab, fd);
+	if (!(tab = check_return(buf, tab, fd)))
+		return (NULL);
 	close(fd);
 	free(buf);
 	return (tab);
