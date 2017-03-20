@@ -6,7 +6,7 @@
 #    By: cnovo-ri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/22 14:51:31 by cnovo-ri          #+#    #+#              #
-#    Updated: 2017/02/17 18:07:50 by cnovo-ri         ###   ########.fr        #
+#    Updated: 2017/03/20 11:22:31 by cnovo-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -155,14 +155,14 @@ CC=clang
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(FLAGS) -c $(SRC)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@$(CC) $(FLAGS) -c $(SRC)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 clean:
-	/bin/rm -f $(OBJ)
+	@/bin/rm -f $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all
